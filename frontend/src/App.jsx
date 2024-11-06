@@ -12,6 +12,9 @@ import Students from './pages/students'
 import About from './pages/about'
 import AddTeacher from './adminControlls/AddTeacher'
 import Home2 from './pages/Home2'
+import UpdateTeacher from './adminControlls/UpdateTeacher'
+import RequestTeacher from './adminControlls/RequestTeacher'
+import Wait from './pages/wait'
 
 
 export const form_context = createContext(null);
@@ -31,6 +34,9 @@ function App() {
     <Route path="/about" element={<About/>} />
     <Route path="/addteacher" element={<AddTeacher/>} />
     <Route path="/home2" element={<Home2 />} />
+    <Route path="/requestteacher" element={<RequestTeacher />} />
+    <Route path="/updateteacher" element={<UpdateTeacher/>} />
+    <Route path="/wait" element={<Wait/>} />
     </Routes>
 
 

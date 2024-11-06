@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-  const name = localStorage.getItem('login_type')
+  let name = localStorage.getItem('login_type')
   const [email,setEmail] = useState([]);
   const [password,setPassword] = useState([]);
   const [validEmail,setValidEmail] = useState(true);
@@ -21,23 +21,39 @@ const Login = () => {
     }
     console.log(cookies,"cookies")
     e.preventDefault();
+    if(name === "teachers"){
+      name = "teacherLogin"
+      
+    }
+    if(name === "students"){
+      name = "student"
+    }
     await axios.post(`http://localhost:5000/${name}`,{
       email,
       password
     })
    .then((r)=>{
     
-      if(r.data.message === "wrong email"){
+      if(r.data.message === "wrong email" || r.data.message === "email already exists"){
         setValidEmail(false)
         console.log(r.data.token)
       }
       else{
         setValidPass(true)
         setValidEmail(true)
-        navigate('/home2');
-
+        
+        console.log(r.data,'aaa')
+        if(r.data.status){
+          localStorage.setItem("token",r.data.token)
+          navigate("/home2")
+        }
+        else{
+          navigate("/wait")
+        }
       }
-      localStorage.setItem("token",r.data.token)
+      
+    
+    
     })
     .catch((e)=>{
       setValidEmail(true)

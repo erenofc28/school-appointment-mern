@@ -19,9 +19,12 @@ const people = [
       },
     // More people...
   ]
+import { useEffect } from "react"
   import "../index.css"
 import Header from "./Header"
   export default function Students() {
+
+
     return (
   
   <>
@@ -41,8 +44,8 @@ Your potential awaits, release.
             </p>
           </div>
           <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-            {people.map((person) => (
-              <li key={person.name}>
+            {people.map((person,ind) => (
+              <li key={ind}>
                 <div className="flex items-center gap-x-6">
                   <img alt="" src={person.imageUrl} className="h-16 w-16 rounded-full" />
                   <div>
