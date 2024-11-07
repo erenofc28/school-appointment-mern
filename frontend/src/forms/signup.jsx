@@ -48,9 +48,12 @@ const handleSignUp = async() => {
     class:class_,
     department:dep,
     profile,
+    status:false,
     email,
     password:pass,
-    status:false,
+    date:"empty",
+    time:"empty"
+    
   }
   let signup_type = localStorage.getItem('signup_type')
 
@@ -59,7 +62,7 @@ const handleSignUp = async() => {
  }
 
  if(signup_type === "students"){
-  signup_type = "students"
+  signup_type = "student"
  }
  
  await axios.post(`http://localhost:5000/`+signup_type,data)

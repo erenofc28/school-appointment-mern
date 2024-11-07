@@ -48,13 +48,15 @@ const handleSignUp = async() => {
     email,
     password:pass,
     status:true,
+    time:"empty",
+    date:"empty"
   }
  await axios.post("http://localhost:5000/teacher",data)
 .then((res)=>{
   console.log(data,"d")
   if(res.data.message==="email already exists"){
     setVali("email already exists")
-   
+   return
   }
   navigate("/teachers")
   console.log("successfuly added",res.data)

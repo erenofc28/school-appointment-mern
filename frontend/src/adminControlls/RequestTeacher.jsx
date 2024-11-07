@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react'
 import Header from '../pages/Header'
 import "../App.css"
 import axios from 'axios'
+import { useLocation, useNavigate } from 'react-router-dom';
 const RequestTeacher = () => {
    const [details,setDetails]= useState([])
    const [empty,setEmpty] = useState(true)
-
+   const navigate = useNavigate()
+   const location = useLocation();
 const inside = () => {
-    console.log("inside")
+    console.log('req type',location.state.reqType)
 }
    const handleApprove = async(id) => {
     const data = {
         status:true
     }
-    await axios.put(`http://localhost:5000/teacher/`+id,data)
+
+    await axios.put(`http://localhost:5000/${location.state.reqType}/`+id,data)
     .then((r)=>{
         console.log("successfuly approved")
         setDetails(details.filter((arr)=>{
@@ -24,7 +27,7 @@ const inside = () => {
     })
    }
    const handleReject = async(id) => {
-    await axios.delete(`http://localhost:5000/teacher/`+id)
+    await axios.delete(`http://localhost:5000/${location.state.reqType}/`+id)
     .then((res)=>{
         console.log("successfuly rejected",)
         setDetails(details.filter((arr)=>{
@@ -38,9 +41,13 @@ const inside = () => {
     .catch((err)=>{
       console.log("error")
     })
-   }
+   } 
     useEffect(()=>{
-        const c = axios.get("http://localhost:5000/teacher")
+        let temp = location.state.reqType
+        if(temp === "student"){
+          temp = "studentAll"
+        }
+        const c = axios.get(`http://localhost:5000/${temp}`)
         .then((res)=>{
           setDetails( res.data.map((r)=>{
             
@@ -57,27 +64,35 @@ const inside = () => {
         .catch((err)=>{
           console.log(err)
         })
+        inside()
       },[])
 
 
 const checkEmpty = () => {
-    const c = axios.get("http://localhost:5000/teacher")
+  let temp = location.state.reqType
+  if(temp === "student"){
+    temp = "studentAll"
+  }
+    const c = axios.get(`http://localhost:5000/${temp}`)
     .then((res)=>{
     res.data.map((arr)=>{
         if(!arr.status){
             setEmpty(false)
+           
         }
     })
-    })
+    }) 
     .catch((err)=>{
       console.log(err)
     })
+    console.log('efef',empty)
 
 }
 
     useEffect(()=>{
  checkEmpty();
     },[])
+
   return (
     <>
       <Header/>

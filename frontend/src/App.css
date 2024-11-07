@@ -102,9 +102,34 @@ width: 210px;
 height: 40px;
 /* border: solid; */
 }
+#simple-search{
+  width: 300px;
+  height: 30px;
+  margin-left: 14px;
+  margin-top: 10px;
+  padding: 15px;
+  outline: none;
+}
+.search-btn{
+  margin-top: 10px;
+  height: 30px;
+  padding: 10px;
+  padding-bottom: 5px;
+  
+}
+
+.search-btn p{
+  font-size: 20px;
+  margin-top: -6px;
+  font-weight: 500;
+}
+.search-icon{
+  height: 15px;
+  margin-top: -3px;
+}
 .plus-icon{
-  margin-top: 4px;
-  margin-left: 10px;
+  margin-top: 7px;
+  margin-left: 15px;
 }
 .t-div{
   /* border: solid black 3px; */
@@ -135,4 +160,91 @@ height: 40px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
+}
+
+/* CSS-for-Booking */
+.textarea_book{
+  height: 270px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  outline: none;
+  border: none;
+  width: 500px;
+  margin-top: 80px;
+  padding: 20px;
+  /* margin-left: auto; */
+ 
+}
+.main_book{
+  /* border: solid; */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+.btn_book_send{
+margin-top: 20px;
+width: 220px;
+margin-right: 40px;
+}
+.btn_book_clear{
+  margin-top: 20px;
+  
+  width: 220px;
+  }
+
+
+  /* CSS-Appointment-Display */
+  .div_book{
+    width: 100w;
+    height:auto;
+    /* border: solid black 3px; */
+    margin-top: 80px;
+  }
+  .small_box_book{
+    /* height: 0px; */
+    width: 380px;
+    padding: 0%;
+    padding-top: 7px;
+    /* border: solid black 3px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .parent_display{
+    width: 380px;
+    padding-top: 7px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .child_parent{
+    flex: 1;
+    
+  }
+  .one{
+/* border: solid black 3px; */
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+padding: 20px;
+margin-bottom: 10px;
+  }
+  .no_appointments{
+    font-size: 23px;
+    margin-top: 150px;
+  }
+.div_schedule{
+  /* border: solid black; */
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.s,.n{
+  width: 210px;
+  font-size: 15px;
+  font-weight: 500;
+  margin:5px;
+ 
 }

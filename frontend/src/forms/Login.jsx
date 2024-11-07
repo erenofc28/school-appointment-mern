@@ -26,7 +26,7 @@ const Login = () => {
       
     }
     if(name === "students"){
-      name = "student"
+      name = "studentLogin"
     }
     await axios.post(`http://localhost:5000/${name}`,{
       email,

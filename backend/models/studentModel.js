@@ -15,7 +15,11 @@ const userSchema = new mongoose.Schema({
      profile:{
         type:String,
         required:true,
+
      },
+     status:{
+      type:Boolean
+   },
    email:{
       type:String,
       required:true,

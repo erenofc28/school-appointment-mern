@@ -15,6 +15,9 @@ import Home2 from './pages/Home2'
 import UpdateTeacher from './adminControlls/UpdateTeacher'
 import RequestTeacher from './adminControlls/RequestTeacher'
 import Wait from './pages/wait'
+import Booking from './forms/Booking'
+import AppointmentDisplay from './pages/AppointmentDisplay'
+import Schedule from './pages/schedule'
 
 
 export const form_context = createContext(null);
@@ -37,6 +40,9 @@ function App() {
     <Route path="/requestteacher" element={<RequestTeacher />} />
     <Route path="/updateteacher" element={<UpdateTeacher/>} />
     <Route path="/wait" element={<Wait/>} />
+    <Route path="/booking" element={<Booking/>} />
+    <Route path="/schedule" element={<Schedule/>} />
+    <Route path="/appointmentdisplay" element={<AppointmentDisplay/>} />
     </Routes>
 
 
