@@ -92,10 +92,10 @@ console.log(name?"name":"false")
   return (
     <>
     <Header/>
-    <div className="body-form mb-10" style={{height:'160vh'}}>
+    <div className="body-form1 flex justify-center items-center mt-24" style={{height:'auto'}}>
 
-    <div class="w-full max-w-xs co-form mt-10">
-  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-210" >
+    <div class="w-full max-w-xs co-form ">
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8  h-210" >
     <div class="mb-1">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
         Username
@@ -176,7 +176,7 @@ console.log(name?"name":"false")
       </a> */}
     </div>
   </form>
-  <p class="text-center text-gray-500 text-xs">
+  <p class="text-center text-gray-500 text-xs mb-10 mt-10">
     &copy;2024 Snippetz institute.All rights reserved.
   </p>
 </div>

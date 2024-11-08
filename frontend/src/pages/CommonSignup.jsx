@@ -12,7 +12,7 @@ const CommonSignup = () => {
   return (
     <>
      <Header/>
-    <div className='main flex flex-wrap main_login'>
+    <div className='main flex flex-wrap main_login '>
 {
   arr.map((user)=>{
     return <>

@@ -14,7 +14,7 @@ const [email,setEmail] = useState();
 const [pass,setPass] = useState();
 const location = useLocation();
 const [id,setId] = useState();
-
+const [vali,setVali] = useState();
 
 
 const handleUpdate = async() => {
@@ -37,11 +37,15 @@ if(email){
 if(pass){
     data["password"] = pass
 }
-console.log("curr",data)
+// console.log("curr",data)
     
  await axios.put(`http://localhost:5000/teacher/`+id,data)
 .then((res)=>{
     console.log("successfuly updated",res.data)
+    if(res.data.message === "email already exists"){
+      setVali("email already exists")
+     return;
+    }
   navigate("/teachers")
 
 })
@@ -105,7 +109,7 @@ useEffect(()=>{
         Email
       </label>
       <input onChange={(e)=>{setEmail(e.target.value)}}  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="Email"/>
-
+{vali?<> <p class="text-red-500 text-xs italic mt-3">Email already exists</p></>:""}
       
     </div>
 

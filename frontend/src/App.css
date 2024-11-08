@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .body {
   background-image: url('assets/bg.jpg');
   background-size: cover; /* or contain */
@@ -14,24 +15,118 @@
 .main{
   display: flex;
   align-items: center;
+  /* flex-direction: column; */
   height: 100vh;
   justify-content: space-around;
+  
   padding: 30px;
-  /* border: solid; */
+  /* border: solid black; */
 
 }
 .welcome{
   /* border: solid; */
   width: 50%;
-  height: 300px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
 .welcome h1{
   color: rgb(66, 144, 223);
   font-size:37px;
   font-weight: bolder;
+  /* border: solid black; */
 }
-.single_card{
-  width: 20px;
+
+@media screen and (max-width:1208px) {
+.welcome h1{
+  font-size: 30px;
+}
+.login-bt{
+  /* font-size: 5px; */
+  /* flex: 1; */
+  margin: 0%;
+  margin-right:10px ;
+  width:270px;
+
+}
+.signup-bt{
+  width: 270px;
+}
+.btns-home1{
+  width: 100%;
+  /* border: solid black; */
+  display: flex;
+
+  justify-content: space-between;
+}
+
+@media screen and (max-width:1030px) {
+  .main{
+    flex-direction: column;
+    margin-top: 50px;
+    
+    height:100%;
+  }
+  .welcome{
+    width: 80%;
+    margin-top: 20px;
+    /* border: solid black; */
+    padding: 20px;
+  }
+  .body{
+    width: 75%;
+    height: 300px;
+  }
+
+}
+@media screen and (max-width:807px) {
+  .btns-home1{
+    /* border: solid black 2px; */
+    flex-direction: column;
+  }
+  .login-bt{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .signup-bt{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:698px) {
+  .welcome{
+    /* border: solid black ; */
+    padding: 15px;
+   height: auto;
+  }
+  .welcome h1{
+    font-size: 24px;
+    /* margin-top: 10px; */
+  }
+  .welcome p{
+    font-size: 17px;
+  }
+  
+}
+
+@media screen and (max-width:572px) {
+  .welcome{
+    /* border: solid; */
+    width: 100%;
+  }
+  .body{
+    width: 100%;
+  }
+  
+}
+@media screen and (max-width:400px){
+  .body{
+    width: 100%;
+  }
+}
+
 }
 
 /* CSS-for-Commmon-Login */
@@ -40,8 +135,39 @@
   height: 100vh;
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   margin-left: auto;
   margin-right: auto;
+  flex-wrap: wrap;
+}
+
+.single_card{
+  /* width: 20px; */
+  /* border: solid black; */
+}
+@media screen and (max-width:538px) {
+  .body-form1{
+    margin-top: 50%;
+  }
+  
+}
+@media screen and (max-width:1040px) {
+  .main_login{
+    /* border: solid black; */
+    /* flex-direction: column; */
+    height: auto;
+    /* padding: 0%; */
+    /* margin: 0%; */
+  }
+  .single_card{
+    /* border: solid black; */
+    height: auto;
+    flex: 2;
+    margin: 10px;
+    
+    margin-bottom: 10px;
+  }
+
 }
 header{
   height:9vh;
@@ -247,4 +373,15 @@ margin-bottom: 10px;
   font-weight: 500;
   margin:5px;
  
+}
+/* CSS for Header */
+@media screen and (max-width:768px) {
+  /* header */
+  .m-btn{
+display: none;
+  }
+  .s-btn{
+   margin-top: 10px;
+  }
+
 }

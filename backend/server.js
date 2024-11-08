@@ -346,6 +346,16 @@ app.delete("/teacher/:id", async (req, res) => {
 app.put("/teacher/:id", async (req, res) => {
   const { id } = req.params;
   const data = req.body;
+  const userDoc = await Student.findOne({ email: data.email });
+  const userDoc3 = await Teacher.findOne({ email: data.email });
+  const userDoc2 = await adminModel.findOne({ email: data.email });
+  if (userDoc != null || userDoc2 != null || userDoc3 != null) {
+    console.log("email already exists");
+    return res.status(201).json({
+      status: data.status,
+      message: "email already exists",
+    });
+  }
 
   try {
     const updated = await Teacher.findByIdAndUpdate(id, data, { new: true });
