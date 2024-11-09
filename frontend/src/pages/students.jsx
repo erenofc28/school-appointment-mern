@@ -93,7 +93,7 @@ setUserType(res.data.type)
  </button>
 </>:""}
 </div>
-<p className="mt-6 text-lg/8 text-gray-600">
+<p className="mt-6 text-lg/8 text-gray-600 para-teacher">
             Learn with passion, grow with purpose,
 Embrace knowledge, and its power unleash.
 Dream big, strive far, and never cease,

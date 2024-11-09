@@ -66,12 +66,12 @@ setArr(res.data.data)
         {arr.map((data,ind)=><>
         <div key={ind} className="one">
   
-     { location.state.type === "student"?<p>To {
+     { location.state.type === "student"?<p className='from-display'>To {
 data.teacherName
         }</p>:""
       }
         {location.state.type === "teacher"?
-        <p>From {data.studentName}
+        <p className='from-display'>From {data.studentName}
         </p>:""}
         <div  className="small_box_book items-center bg-white-500 text-white text-sm font-bold px-4 py-3" role="alert">
     
@@ -84,12 +84,12 @@ data.teacherName
   </div>
   
   <div className='flex parent_display'>
-  <div className='child_display'>status : {data.status}</div>
+  <div className='child_display'>Status : {data.status}</div>
  {location.state.type ==="teacher" && <>
- <button onClick={()=>{handleBtns(data,"Approved")}} className="child_display bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+ <button onClick={()=>{handleBtns(data,"Approved")}} className="child_display bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
     Approve
   </button>
-  <button onClick={()=>{handleBtns(data,"Rejected")}} className=" child_display bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+  <button onClick={()=>{handleBtns(data,"Rejected")}} className=" child_display bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded">
     Reject
   </button>
  </>}

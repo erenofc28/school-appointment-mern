@@ -59,7 +59,7 @@ const handleSave = () => {
   return (
     <>
       <Header/>
-      <div className='main_book'>
+      <div className='main_book2'>
        {/* <textarea   className='textarea_book' name="box" cols="30" rows="10"></textarea> */}
        <div class="mb-1">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="email">

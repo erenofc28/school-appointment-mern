@@ -63,7 +63,7 @@ useEffect(()=>{
   return (
     <>
     <Header/>
-    <div className="body-form mb-10" style={{height:'160vh'}}>
+    <div className="body-form mb-10 form-add" style={{height:'160vh'}}>
 
     <div class="w-full max-w-xs co-form mt-10">
   <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-210" >

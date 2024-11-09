@@ -218,6 +218,23 @@ header p{
   color: rgb(65, 97, 227);
   font-size: 40px;
 }
+@media screen and (max-width:500px) {
+.about{
+  height: auto;
+  width: 90%;
+}
+
+.about p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.about h6{
+  margin-top: 10px;
+  font-size: 13px;
+  /* letter-spacing: 0.1cap; */
+}
+  
+}
 .about p{
   font-weight: bold;
 color: black;
@@ -228,6 +245,7 @@ width: 210px;
 height: 40px;
 /* border: solid; */
 }
+
 #simple-search{
   width: 300px;
   height: 30px;
@@ -235,6 +253,11 @@ height: 40px;
   margin-top: 10px;
   padding: 15px;
   outline: none;
+  /* border: solid black; */
+}
+#simple-search2{
+  border: solid blue 1px;
+  padding: 17px;
 }
 .search-btn{
   margin-top: 10px;
@@ -256,6 +279,7 @@ height: 40px;
 .plus-icon{
   margin-top: 7px;
   margin-left: 15px;
+  margin-right: 10px;
 }
 .t-div{
   /* border: solid black 3px; */
@@ -263,6 +287,142 @@ height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.search-btnr{
+  margin-top: 10px;
+  height: 30px;
+  padding: 10px;
+  padding-bottom: 5px;
+}
+
+@media screen and (min-width:667px) {
+  #simple-search2{
+    display: none;
+  }
+  .search-btnr{
+    display: none;
+  }
+  .search-btn2{
+    display: none;
+  }
+  
+}
+
+@media screen and (max-width:450px) {
+  .form-add{
+    height: auto;
+    margin-top: -40%;
+   /* border: solid black; */
+  }
+  .wait_msg{
+    min-width: 200px;
+    /* border :solid black; */
+  }
+  .small_box{
+    /* border: solid black 2px; */
+    padding: 20px;
+    /* margin-left: 30px; */
+    width: 100vw;
+  }
+
+}
+@media screen and (max-width:698px) {
+  .small_box p{
+    margin-left: 30px;
+  }
+
+  .main_book textarea{
+    width: 90%;
+  }
+  .main_book div{
+    /* margin-left: auto; */
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    /* border: solid black; */
+    /* margin-right: 50%; */
+  }
+  .main_book button{
+    margin: 10px;
+width: 40%;
+  }
+
+}
+
+@media screen and (max-width:667px) {
+
+  .para-teacher{
+    width: 90%;
+  }
+  .plus-icon{
+
+    margin-right: 15px;
+  }
+  #simple-search2{
+    width: 74%;
+    height: 30px;
+    /* margin-left: 14px; */
+    margin-top: 10px;
+    padding: 15px;
+    outline: none;
+    /* border: solid black; */
+  }
+
+  .main-div-search2{
+    width: 100%;
+    border: solid black;
+    /* flex-wrap: wrap; */
+    margin: 0%;
+  }
+
+  .search-btn2{
+    margin-top: 10px;
+    height: 32px;
+  }
+
+  .search-btn{
+    display: none;
+  }
+  .search-div{
+    display: none;
+  }
+  .search-btnr{
+    margin-top: 10px;
+    height: 32px;
+    padding: 10px;
+    padding-bottom: 17px;
+    font-size: 22px;
+    width: 38px;
+    margin-right: 10px;
+  }
+  .search-btnr p{
+    margin-top: -8px;
+  }
+
+
+  .div-for-mobile-search{
+    /* border: solid black; */
+display: flex;
+flex-direction: row;
+/* justify-content: center; */
+align-items: center;
+margin-bottom: 15px;
+  }
+
+  .div-for-mobile-search input{
+    border: solid black 1px;
+    height: 30px;
+    width: 230px;
+    margin-top: 10px;
+    border-radius: 7px;
+    outline: none;
+    padding: 10px;
+  }
+
+
+
 }
 
 /* CSS-Teacher-req-page */
@@ -349,6 +509,58 @@ margin-right: 40px;
     flex: 1;
     
   }
+
+
+  @media screen and (max-width:500px) {
+    .parent_display{
+      /* border: solid black; */
+      justify-content: space-around;
+      width: 90%;
+      margin-left: auto;margin-right: auto;
+      /* padding-left: 10px; */
+    }
+    .child_display {
+      /* border: solid black; */
+  width: auto;
+  /* font-size: 14px; */
+  font-size: 14px;
+      
+    }
+    .parent_display p{
+      font-size: 10px;
+    }
+    .parent_display button{
+    width: 66x;
+    height: 30px;
+    font-size: 11px;
+
+    }
+
+    .from-display{
+      margin-left: 20px;
+    }
+    .div_book{
+      /* border: solid black; */
+      width:90%;
+      /* display: flex; */
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+    .one{
+      /* border: solid black; */
+      width: 100%;
+    }
+    .small_box_book{
+      /* border: solid black; */
+      width: 90%;
+      /* padding: 0%; */
+      margin-left: 20px;
+    }
+  }
+
+  
+
   .one{
 /* border: solid black 3px; */
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -385,3 +597,21 @@ display: none;
   }
 
 }
+/* CSS-Shedule */
+@media screen and  (max-width:500px) {
+  .main_book{
+    width: 100%;
+    /* border: solid black; */
+    flex-direction: column;
+    /* display: flex; */
+  }
+
+  
+}
+.main_book2{width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+gap: 1px;}
