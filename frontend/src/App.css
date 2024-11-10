@@ -5,26 +5,27 @@
 
 .body {
   background-image: url('assets/bg.jpg');
-  background-size: cover; /* or contain */
-  height: 300px; /* or any other height */
-  width: 40%; /* or any other width */
+  background-size: cover;
+  /* or contain */
+  height: 300px;
+  /* or any other height */
+  width: 40%;
+  /* or any other width */
   border-radius: 9px;
   /* border: solid; */
   /* margin-top: auto; */
 }
-.main{
+
+.main {
   display: flex;
   align-items: center;
-  /* flex-direction: column; */
   height: 100vh;
   justify-content: space-around;
-  
   padding: 30px;
-  /* border: solid black; */
 
 }
-.welcome{
-  /* border: solid; */
+
+.welcome {
   width: 50%;
   height: 320px;
   display: flex;
@@ -32,106 +33,110 @@
   justify-content: center;
 
 }
-.welcome h1{
+
+.welcome h1 {
   color: rgb(66, 144, 223);
-  font-size:37px;
+  font-size: 37px;
   font-weight: bolder;
-  /* border: solid black; */
 }
 
 @media screen and (max-width:1208px) {
-.welcome h1{
-  font-size: 30px;
-}
-.login-bt{
-  /* font-size: 5px; */
-  /* flex: 1; */
-  margin: 0%;
-  margin-right:10px ;
-  width:270px;
-
-}
-.signup-bt{
-  width: 270px;
-}
-.btns-home1{
-  width: 100%;
-  /* border: solid black; */
-  display: flex;
-
-  justify-content: space-between;
-}
-
-@media screen and (max-width:1030px) {
-  .main{
-    flex-direction: column;
-    margin-top: 50px;
-    
-    height:100%;
-  }
-  .welcome{
-    width: 80%;
-    margin-top: 20px;
-    /* border: solid black; */
-    padding: 20px;
-  }
-  .body{
-    width: 75%;
-    height: 300px;
+  .welcome h1 {
+    font-size: 30px;
   }
 
-}
-@media screen and (max-width:807px) {
-  .btns-home1{
-    /* border: solid black 2px; */
-    flex-direction: column;
+  .login-bt {
+    margin: 0%;
+    margin-right: 10px;
+    width: 270px;
+
   }
-  .login-bt{
+
+  .signup-bt {
+    width: 270px;
+  }
+
+  .btns-home1 {
     width: 100%;
-    margin-bottom: 10px;
-  }
-  .signup-bt{
-    width: 100%;
-  }
-}
+    display: flex;
 
-@media screen and (max-width:698px) {
-  .welcome{
-    /* border: solid black ; */
-    padding: 15px;
-   height: auto;
+    justify-content: space-between;
   }
-  .welcome h1{
-    font-size: 24px;
-    /* margin-top: 10px; */
-  }
-  .welcome p{
-    font-size: 17px;
-  }
-  
-}
 
-@media screen and (max-width:572px) {
-  .welcome{
-    /* border: solid; */
-    width: 100%;
+  @media screen and (max-width:1030px) {
+    .main {
+      flex-direction: column;
+      margin-top: 50px;
+
+      height: 100%;
+    }
+
+    .welcome {
+      width: 80%;
+      margin-top: 20px;
+      padding: 20px;
+    }
+
+    .body {
+      width: 75%;
+      height: 300px;
+    }
+
   }
-  .body{
-    width: 100%;
+
+  @media screen and (max-width:807px) {
+    .btns-home1 {
+      flex-direction: column;
+    }
+
+    .login-bt {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .signup-bt {
+      width: 100%;
+    }
   }
-  
-}
-@media screen and (max-width:400px){
-  .body{
-    width: 100%;
+
+  @media screen and (max-width:698px) {
+    .welcome {
+      padding: 15px;
+      height: auto;
+    }
+
+    .welcome h1 {
+      font-size: 24px;
+    }
+
+    .welcome p {
+      font-size: 17px;
+    }
+
   }
-}
+
+  @media screen and (max-width:572px) {
+    .welcome {
+      width: 100%;
+    }
+
+    .body {
+      width: 100%;
+    }
+
+  }
+
+  @media screen and (max-width:400px) {
+    .body {
+      width: 100%;
+    }
+  }
 
 }
 
 /* CSS-for-Commmon-Login */
-.main_login{
-  width:90vw;
+.main_login {
+  width: 90vw;
   height: 100vh;
   display: flex;
   justify-content: space-between;
@@ -141,154 +146,158 @@
   flex-wrap: wrap;
 }
 
-.single_card{
-  /* width: 20px; */
-  /* border: solid black; */
-}
+
 @media screen and (max-width:538px) {
-  .body-form1{
+  .body-form1 {
     margin-top: 50%;
   }
-  
+
 }
+
 @media screen and (max-width:1040px) {
-  .main_login{
-    /* border: solid black; */
-    /* flex-direction: column; */
+  .main_login {
     height: auto;
-    /* padding: 0%; */
-    /* margin: 0%; */
   }
-  .single_card{
-    /* border: solid black; */
+
+  .single_card {
     height: auto;
     flex: 2;
     margin: 10px;
-    
     margin-bottom: 10px;
   }
 
 }
-header{
-  height:9vh;
+
+header {
+  height: 9vh;
   border-radius: 0%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-header p{
+
+header p {
   font-weight: bold;
   font-size: 20px;
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 /* CSS-for-admin-login */
-.body-form{
-  /* border: solid; */
-  height:100vh;
+.body-form {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.login-btn{
+
+.login-btn {
   width: 100%;
 }
+
 /* CSS-for-second-home */
-.main_home2{
+.main_home2 {
   margin-top: 30px;
 }
+
 /* CSS-for-about */
-.about{
+.about {
   margin-top: 170px;
   width: 90%;
-  margin-left:auto ;
+  margin-left: auto;
   font-size: 15px;
   letter-spacing: 1px;
   color: rgb(48, 45, 45);
-  margin-right:auto ;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  /* border: solid; */
   height: 220px;
 }
-.about h1{
+
+.about h1 {
   font-weight: bold;
   color: rgb(65, 97, 227);
   font-size: 40px;
 }
+
 @media screen and (max-width:500px) {
-.about{
-  height: auto;
-  width: 90%;
+  .about {
+    height: auto;
+    width: 90%;
+  }
+
+  .about p {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .about h6 {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+
 }
 
 .about p {
-  margin-top: 20px;
-  font-size: 14px;
-}
-.about h6{
-  margin-top: 10px;
-  font-size: 13px;
-  /* letter-spacing: 0.1cap; */
-}
-  
-}
-.about p{
   font-weight: bold;
-color: black;
-}
-/* CSS-for-teachers-page */
-.teacher-box{
-width: 210px;
-height: 40px;
-/* border: solid; */
+  color: black;
 }
 
-#simple-search{
+/* CSS-for-teachers-page */
+.teacher-box {
+  width: 210px;
+  height: 40px;
+}
+
+#simple-search {
   width: 300px;
   height: 30px;
   margin-left: 14px;
   margin-top: 10px;
   padding: 15px;
   outline: none;
-  /* border: solid black; */
 }
-#simple-search2{
+
+#simple-search2 {
   border: solid blue 1px;
   padding: 17px;
 }
-.search-btn{
+
+.search-btn {
   margin-top: 10px;
   height: 30px;
   padding: 10px;
   padding-bottom: 5px;
-  
+
 }
 
-.search-btn p{
+.search-btn p {
   font-size: 20px;
   margin-top: -6px;
   font-weight: 500;
 }
-.search-icon{
+
+.search-icon {
   height: 15px;
   margin-top: -3px;
 }
-.plus-icon{
+
+.plus-icon {
   margin-top: 7px;
   margin-left: 15px;
   margin-right: 10px;
 }
-.t-div{
-  /* border: solid black 3px; */
+
+.t-div {
   width: 94vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.search-btnr{
+
+.search-btnr {
   margin-top: 10px;
   height: 30px;
   padding: 10px;
@@ -296,99 +305,99 @@ height: 40px;
 }
 
 @media screen and (min-width:667px) {
-  #simple-search2{
+  #simple-search2 {
     display: none;
   }
-  .search-btnr{
+
+  .search-btnr {
     display: none;
   }
-  .search-btn2{
+
+  .search-btn2 {
     display: none;
   }
-  
+
 }
 
 @media screen and (max-width:450px) {
-  .form-add{
+  .form-add {
     height: auto;
     margin-top: -40%;
-   /* border: solid black; */
   }
-  .wait_msg{
+
+  .wait_msg {
     min-width: 200px;
-    /* border :solid black; */
   }
-  .small_box{
-    /* border: solid black 2px; */
+
+  .small_box {
     padding: 20px;
-    /* margin-left: 30px; */
     width: 100vw;
   }
 
 }
+
 @media screen and (max-width:698px) {
-  .small_box p{
+  .small_box p {
     margin-left: 30px;
   }
 
-  .main_book textarea{
+  .main_book textarea {
     width: 90%;
   }
-  .main_book div{
-    /* margin-left: auto; */
+
+  .main_book div {
     width: 100%;
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-    /* border: solid black; */
-    /* margin-right: 50%; */
   }
-  .main_book button{
+
+  .main_book button {
     margin: 10px;
-width: 40%;
+    width: 40%;
   }
 
 }
 
 @media screen and (max-width:667px) {
 
-  .para-teacher{
+  .para-teacher {
     width: 90%;
   }
-  .plus-icon{
+
+  .plus-icon {
 
     margin-right: 15px;
   }
-  #simple-search2{
+
+  #simple-search2 {
     width: 74%;
     height: 30px;
-    /* margin-left: 14px; */
     margin-top: 10px;
     padding: 15px;
     outline: none;
-    /* border: solid black; */
   }
 
-  .main-div-search2{
+  .main-div-search2 {
     width: 100%;
     border: solid black;
-    /* flex-wrap: wrap; */
     margin: 0%;
   }
 
-  .search-btn2{
+  .search-btn2 {
     margin-top: 10px;
     height: 32px;
   }
 
-  .search-btn{
+  .search-btn {
     display: none;
   }
-  .search-div{
+
+  .search-div {
     display: none;
   }
-  .search-btnr{
+
+  .search-btnr {
     margin-top: 10px;
     height: 32px;
     padding: 10px;
@@ -397,21 +406,20 @@ width: 40%;
     width: 38px;
     margin-right: 10px;
   }
-  .search-btnr p{
+
+  .search-btnr p {
     margin-top: -8px;
   }
 
 
-  .div-for-mobile-search{
-    /* border: solid black; */
-display: flex;
-flex-direction: row;
-/* justify-content: center; */
-align-items: center;
-margin-bottom: 15px;
+  .div-for-mobile-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
   }
 
-  .div-for-mobile-search input{
+  .div-for-mobile-search input {
     border: solid black 1px;
     height: 30px;
     width: 230px;
@@ -426,12 +434,13 @@ margin-bottom: 15px;
 }
 
 /* CSS-Teacher-req-page */
-.div_req{
+.div_req {
   height: 100vh;
   width: 100vw;
   /* border: solid black 2px; */
 }
-.small_box{
+
+.small_box {
   height: 50px;
   width: 380px;
   /* border: solid black 3px; */
@@ -441,7 +450,7 @@ margin-bottom: 15px;
 }
 
 /* CSS-Wait-page */
-.wait_msg{
+.wait_msg {
   width: 50vw;
   margin-left: auto;
   margin-right: auto;
@@ -449,7 +458,7 @@ margin-bottom: 15px;
 }
 
 /* CSS-for-Booking */
-.textarea_book{
+.textarea_book {
   height: 270px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   outline: none;
@@ -457,11 +466,10 @@ margin-bottom: 15px;
   width: 500px;
   margin-top: 80px;
   padding: 20px;
-  /* margin-left: auto; */
- 
+
 }
-.main_book{
-  /* border: solid; */
+
+.main_book {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -470,148 +478,163 @@ margin-bottom: 15px;
   align-items: center;
   gap: 1px;
 }
-.btn_book_send{
-margin-top: 20px;
-width: 220px;
-margin-right: 40px;
-}
-.btn_book_clear{
+
+.btn_book_send {
   margin-top: 20px;
-  
   width: 220px;
-  }
+  margin-right: 40px;
+}
+
+.btn_book_clear {
+  margin-top: 20px;
+
+  width: 220px;
+}
 
 
-  /* CSS-Appointment-Display */
-  .div_book{
-    width: 100w;
-    height:auto;
-    /* border: solid black 3px; */
-    margin-top: 80px;
-  }
-  .small_box_book{
-    /* height: 0px; */
-    width: 380px;
-    padding: 0%;
-    padding-top: 7px;
-    /* border: solid black 3px; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .parent_display{
-    width: 380px;
-    padding-top: 7px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .child_parent{
-    flex: 1;
-    
-  }
+/* CSS-Appointment-Display */
+.div_book {
+  width: 100w;
+  height: auto;
+  margin-top: 80px;
+}
+
+.small_box_book {
+  width: 380px;
+  padding: 0%;
+  padding-top: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.parent_display {
+  width: 380px;
+  padding-top: 7px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.child_parent {
+  flex: 1;
+
+}
 
 
-  @media screen and (max-width:500px) {
-    .parent_display{
-      /* border: solid black; */
-      justify-content: space-around;
-      width: 90%;
-      margin-left: auto;margin-right: auto;
-      /* padding-left: 10px; */
-    }
-    .child_display {
-      /* border: solid black; */
-  width: auto;
-  /* font-size: 14px; */
-  font-size: 14px;
-      
-    }
-    .parent_display p{
-      font-size: 10px;
-    }
-    .parent_display button{
+@media screen and (max-width:500px) {
+  .parent_display {
+    justify-content: space-around;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .child_display {
+
+    width: auto;
+    font-size: 14px;
+
+  }
+
+  .parent_display p {
+    font-size: 10px;
+  }
+
+  .parent_display button {
     width: 66x;
     height: 30px;
     font-size: 11px;
 
-    }
-
-    .from-display{
-      margin-left: 20px;
-    }
-    .div_book{
-      /* border: solid black; */
-      width:90%;
-      /* display: flex; */
-      margin-left: auto;
-      margin-right: auto;
-
-    }
-    .one{
-      /* border: solid black; */
-      width: 100%;
-    }
-    .small_box_book{
-      /* border: solid black; */
-      width: 90%;
-      /* padding: 0%; */
-      margin-left: 20px;
-    }
   }
 
-  
+  .from-display {
+    margin-left: 20px;
+  }
 
-  .one{
-/* border: solid black 3px; */
-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-padding: 20px;
-margin-bottom: 10px;
+  .div_book {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
   }
-  .no_appointments{
-    font-size: 23px;
-    margin-top: 150px;
+
+  .one {
+
+    width: 100%;
   }
-.div_schedule{
-  /* border: solid black; */
+
+  .small_box_book {
+
+    width: 90%;
+
+    margin-left: 20px;
+  }
+}
+
+
+
+.one {
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.no_appointments {
+  font-size: 23px;
+  margin-top: 150px;
+}
+
+.div_schedule {
+
   width: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.s,.n{
+
+.s,
+.n {
   width: 210px;
   font-size: 15px;
   font-weight: 500;
-  margin:5px;
- 
+  margin: 5px;
+
 }
+
 /* CSS for Header */
 @media screen and (max-width:768px) {
+
   /* header */
-  .m-btn{
-display: none;
+  .m-btn {
+    display: none;
   }
-  .s-btn{
-   margin-top: 10px;
+
+  .s-btn {
+    margin-top: 10px;
   }
 
 }
+
 /* CSS-Shedule */
-@media screen and  (max-width:500px) {
-  .main_book{
+@media screen and (max-width:500px) {
+  .main_book {
     width: 100%;
-    /* border: solid black; */
+
     flex-direction: column;
-    /* display: flex; */
+
   }
 
-  
+
 }
-.main_book2{width: 100vw;
-height: 100vh;
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-gap: 1px;}
+
+.main_book2 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
