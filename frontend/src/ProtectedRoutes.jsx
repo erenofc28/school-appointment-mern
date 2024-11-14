@@ -5,7 +5,7 @@ import { Outlet, Navigate } from "react-router-dom";
 const getType = async () => {
   const res = await axios.post("http://localhost:5000/typeFind",{},{
     withCredentials:true
-  });
+  }); 
 
   return res;
 };
@@ -16,12 +16,17 @@ const ProtectedRoutes = () => {
 
   user
     .then((r) => {
-      setId(true);
+      if(r.data.message != "invalid token" )
+      {
+        setId(true);
+      }
+      else{
+        setId(false)
+      }
     })
     .catch((err) => {
       setId(false);
     });
-
   return id ? <Outlet /> : <Navigate to={"/"} />;
 };
 

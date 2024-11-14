@@ -381,19 +381,19 @@ export const teacherLogin = async (req, res) => {
 
       return res
         .status(201)
-        .json({ data: TeacherDoc, success: true, type: "teacher" });
+        .json({ data: TeacherDoc, success: true, type: "teacher" ,message:""});
     }
     if (adminDoc != null) {
      
       return res
         .status(201)
-        .json({ data: adminDoc, success: true, type: "admin" });
+        .json({ data: adminDoc, success: true, type: "admin" ,message:""});
     }
     if (StudentDoc != null) {
   
       return res
         .status(201)
-        .json({ data: StudentDoc, success: true, type: "student" });
+        .json({ data: StudentDoc, success: true, type: "student" ,message:""});
     }
     return res.status(201).json({ status: false, message: "invalid token" });
   }
