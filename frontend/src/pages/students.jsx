@@ -60,13 +60,10 @@ const Students = () => {
 
   //to get user type
   const getType = async () => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      return;
-    }
     const r = await axios
-      .post("http://localhost:5000/typeFind", { token })
+      .post("http://localhost:5000/typeFind",{},{
+        withCredentials:true
+      }) 
       .then((res) => {
         setUserType(res.data.type);
       })

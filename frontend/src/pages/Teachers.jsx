@@ -1,12 +1,8 @@
 import "../index.css";
 import Header from "./Header";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLayoutEffect } from "react";
-
-import fs from "fs";
-import setTimeout from "timers";
 
 let people = [];
 
@@ -24,17 +20,13 @@ const Teachers = () => {
 
   //to handle seacrch box
   const handleSearch = () => {
-    console.log("search", search);
     setDetails(
       details.filter((person) => {
-        console.log(person.name.toLowerCase().includes(), "check");
         if (person.name.toLowerCase().includes(search.toLowerCase())) {
           return person;
         }
       })
     );
-
-    console.log(details);
   };
 
   //to handle requst page navgation
@@ -65,7 +57,6 @@ const Teachers = () => {
             }
           })
         );
-        console.log(details);
       })
       .catch(() => {
         console.log("not able to delete");
@@ -73,7 +64,6 @@ const Teachers = () => {
   };
   //method for navigate to the update method page for(teacher)
   const handleUpdate = (id) => {
-    // console.log("mavi")
     navigate("/updateteacher", { state: { id } });
   };
   //to get available data from database
@@ -98,20 +88,19 @@ const Teachers = () => {
       .catch((err) => {
         console.log(err);
       });
-    getType();
+
+getType()
   }, [reset]);
 
-  //to get user type
-  const getType = async () => {
-    const token = localStorage.getItem("token");
+  //to get user type 
+  const getType = async () => { 
 
-    if (!token) {
-      return;
-    }
     const r = await axios
-      .post("http://localhost:5000/typeFind", { token })
+      .post("http://localhost:5000/typeFind",{},{
+        withCredentials:true
+      }) 
       .then((res) => {
-        setId(res.data.data.id);
+        setId(res.data.data._id);
         setUserType(res.data.type);
       })
       .catch((err) => {
@@ -160,7 +149,6 @@ const Teachers = () => {
                 </svg>
                 <span className="sr-only">Search</span>
               </button>
-              {/* reset btn */}
               <button
                 onClick={() => {
                   setReset(Math.random());

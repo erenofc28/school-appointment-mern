@@ -3,8 +3,10 @@ import jsonwebtoken from "jsonwebtoken";
 import { Teacher } from "../models/teacherModel.js";
 import { Student } from "../models/studentModel.js";
 import { Appointment } from "../models/AppointmentModel.js";
+import bcrypt from "bcrypt";
 
 const jwt = jsonwebtoken;
+const salt = bcrypt.genSaltSync(10);
 const secret = "ieafn3rrgr";
 
 // admin login method
@@ -27,16 +29,19 @@ export const adminLogin = async (req, res) => {
   
       const token = jwt.sign(
         {
-          email: data.email,
-          password: data.password,
+          id:userDoc._id
         },
         secret,
         { expiresIn: "20h" }
       );
-  
+      res.cookie('token',token,{
+        httpOnly:true,
+        secure:true,
+        maxAge:86400000,
+        sameSite:'None'
+      })
       res.status(201).json({
         status: true,
-        token: token,
         message: "email and password matched",
       });
     } else {
@@ -58,29 +63,26 @@ export const teacherLogin = async (req, res) => {
       data.email &&
       data.password &&
       userDoc.email === data.email &&
-      userDoc.password === data.password
+      bcrypt.compareSync(data.password,userDoc.password)
     ) {
       console.log("email and pass matched (teacher)");
   
       const token = jwt.sign(
         {
-          username: userDoc.username,
-          class: userDoc.class,
-          department: userDoc.department,
-          profile: userDoc.profile,
-          email: userDoc.email,
-          id: userDoc._id,
-          password: userDoc.password,
-          time: userDoc.time,
-          date: userDoc.date,
+          id:userDoc._id
         },
         secret,
         { expiresIn: "20h" }
       );
+      res.cookie('token',token,{
+        httpOnly:true,
+        secure:true,
+        maxAge:86400000,
+        sameSite:'None'
+      })
   
       res.status(201).json({
         status: userDoc.status,
-        token: token,
         message: "email and password matched",
       });
     } else {
@@ -104,27 +106,25 @@ export const teacherLogin = async (req, res) => {
       data.email &&
       data.password &&
       userDoc.email === data.email &&
-      userDoc.password === data.password
+      bcrypt.compareSync(data.password,userDoc.password)
     ) {
-      console.log("email and pass matched (student)");
-  
+     
       const token = jwt.sign(
         {
-          username: userDoc.username,
-          class: userDoc.class,
-          department: userDoc.department,
-          profile: userDoc.profile,
-          email: userDoc.email,
-          id: userDoc._id,
-          password: userDoc.password,
+          id:userDoc._id
         },
         secret,
         { expiresIn: "20h" }
       );
+      res.cookie('token',token,{
+        httpOnly:true,
+        secure:true,
+        maxAge:86400000,
+        sameSite:'None'
+      })
   
       res.status(201).json({
         status: userDoc.status,
-        token: token,
         message: "email and password matched",
       });
     } else {
@@ -164,6 +164,7 @@ export const teacherLogin = async (req, res) => {
         message: "please fill all the fields",
       });
     }
+    data.password = bcrypt.hashSync( data.password,salt)
     const newData = new Teacher(data);
     try {
       await newData.save();
@@ -175,7 +176,7 @@ export const teacherLogin = async (req, res) => {
           profile: newData.profile,
           id: newData._id,
           email: newData.email,
-          password: newData.password,
+          password:newData.password,
           date: newData.date,
           time: newData.time,
         },
@@ -225,6 +226,7 @@ export const teacherLogin = async (req, res) => {
         message: "please fill all the fields",
       });
     }
+    data.password = bcrypt.hashSync( data.password,salt)
     const newData = new Student(data);
     try {
       await newData.save();
@@ -236,7 +238,7 @@ export const teacherLogin = async (req, res) => {
           profile: newData.profile,
           id: newData._id,
           email: newData.email,
-          password: newData.password,
+          password:newData.password,
         },
         secret,
         { expiresIn: "20h" }
@@ -259,7 +261,6 @@ export const teacherLogin = async (req, res) => {
   //all teachers get method
   export const teacherGetAll = async (req, res) => {
     const data = await Teacher.find();
-    console.log(data);
     if (data === null || data.length === 0) {
       return res.status(500).json({ status: false, message: "no data found" });
     }
@@ -303,7 +304,11 @@ export const teacherLogin = async (req, res) => {
         message: "email already exists",
       });
     }
-  
+    if (data.password)
+    {
+      data.password = bcrypt.hashSync( data.password,salt)
+    }
+
     try {
       const updated = await Teacher.findByIdAndUpdate(id, data, { new: true });
       res.status(200).json({
@@ -353,7 +358,10 @@ export const teacherLogin = async (req, res) => {
 
   //finding user type with JWT
   export const userTypeFind = async (req, res) => {
-    const token = req.body.token;
+    const {token} = req.cookies;
+    if (!token){
+      return res.status(201).json({ status: false, message: "invalid token" });
+    }
     let decoded = "";
     try {
       decoded = await jwt.verify(token, secret);
@@ -363,31 +371,42 @@ export const teacherLogin = async (req, res) => {
     }
 
     if (decoded === "") {
-      return res.status(500).json({ status: false, message: "invalid token" });
+      return res.status(201).json({ status: false, message: "invalid token" });
     }
-    // console.log(decoded, "decoded");
-    const TeacherDoc = await Teacher.findOne({ email: decoded.email });
-    const StudentDoc = await Student.findOne({ email: decoded.email });
-    const adminDoc = await adminModel.findOne({ email: decoded.email });
+    const TeacherDoc = await Teacher.findOne({ _id: decoded.id });
+    const StudentDoc = await Student.findOne({ _id: decoded.id });
+    const adminDoc = await adminModel.findOne({ _id: decoded.id });
+
     if (TeacherDoc != null) {
 
       return res
         .status(201)
-        .json({ data: decoded, success: true, type: "teacher" });
+        .json({ data: TeacherDoc, success: true, type: "teacher" });
     }
     if (adminDoc != null) {
      
       return res
         .status(201)
-        .json({ data: decoded, success: true, type: "admin" });
+        .json({ data: adminDoc, success: true, type: "admin" });
     }
     if (StudentDoc != null) {
   
       return res
         .status(201)
-        .json({ data: decoded, success: true, type: "student" });
+        .json({ data: StudentDoc, success: true, type: "student" });
     }
-    return res.status(501).json({ status: false, message: "invalid token" });
+    return res.status(201).json({ status: false, message: "invalid token" });
+  }
+
+  //for user logout
+  export const forLogout = async (req,res) => {
+    res.cookie('token','',{
+      httpOnly:true,
+      secure:true,
+      maxAge:86400000,
+      sameSite:'None'
+    })
+    return res.status(201).json({message:"successfully logged out"})
   }
 
   //for teacher booking post method

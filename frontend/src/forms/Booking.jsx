@@ -17,18 +17,20 @@ const Booking = () => {
     getType();
   }, []);
 
-  //to get student id
+  //to get student id from typefind (with current token)
+  //because student is the only one who can do booking function
   const getType = async () => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      return;
-    }
     const r = await axios
-      .post("http://localhost:5000/typeFind", { token })
+      .post(
+        "http://localhost:5000/typeFind",
+        {},
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
+        setStudentId(res.data.data._id);
         setStudentName(res.data.data.username);
-        setStudentId(res.data.data.id);
       })
       .catch((err) => {
         console.log(err);

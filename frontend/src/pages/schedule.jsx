@@ -10,7 +10,6 @@ const Schedule = () => {
   const [time, setTime] = useState([]);
   //to handle not available btn
   const handleNotAvailable = () => {
-    // console.log(id)
     const data = { date: "empty", time: "empty" };
     axios
       .put(`http://localhost:5000/teacher/${id}`, data)
@@ -41,19 +40,16 @@ const Schedule = () => {
     getType();
   }, []);
   const getType = async () => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      return;
-    }
     const r = await axios
-      .post("http://localhost:5000/typeFind", { token })
-      .then((res) => {
-        setId(res.data.data.id);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .post("http://localhost:5000/typeFind",{},{
+      withCredentials:true
+    }) 
+    .then((res) => {
+      setId(res.data.data._id);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   return (

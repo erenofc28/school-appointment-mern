@@ -1,10 +1,38 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [hidden, setHidden] = useState("hidden");
+  const [user,setUser] = useState(false)
+  //check user logged in or not
+  useEffect(() => {
+getType()
+  }, [user]);
 
+
+  const getType = async()=>{ await axios
+  .post(
+    "http://localhost:5000/typeFind",
+    {},
+    {
+      withCredentials: true,
+    }
+  )
+  .then((res) => {
+    if(res.data.type === "admin")
+    {
+      setUser(true)
+      return;
+    }
+   setUser(res.data.data.status)
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+}
   //handle navbar toggle
   const handleHidden = () => {
     if (hidden != "hidden") {
@@ -15,7 +43,11 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    axios.get("http://localhost:5000/logout",{
+      withCredentials:true,
+    })
+    const d = getType()
+    console.log("logged out",user)
     navigate("/");
   };
   useEffect(() => {
@@ -39,7 +71,7 @@ const Header = () => {
             </h1>
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {localStorage.getItem("token") ? (
+            {user ? (
               <>
                 <button
                   onClick={handleLogout}
@@ -85,7 +117,7 @@ const Header = () => {
             <ul className=" flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <Link
-                  to={localStorage.getItem("token") ? "/home2" : "/"}
+                  to={user ? "/home2" : "/"}
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Home
@@ -93,7 +125,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to={localStorage.getItem("token") ? "/teachers" : "/"}
+                  to={user ? "/teachers" : "/"}
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Teachers
@@ -101,7 +133,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to={localStorage.getItem("token") ? "/students" : "/"}
+                  to={user ? "/students" : "/"}
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Students
@@ -117,7 +149,7 @@ const Header = () => {
               </li>
               {hidden != "hidden" && (
                 <>
-                  {localStorage.getItem("token") ? (
+                  {user ? (
                     <>
                       <button
                         onClick={handleLogout}

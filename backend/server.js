@@ -6,7 +6,10 @@ import cookieParser from "cookie-parser";
 import router from "./routes/routes.js";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin:"http://localhost:5173",
+  credentials:true,
+}));
 app.use(cookieParser());
 dotenv.config();
 app.use(express.json());

@@ -13,11 +13,12 @@ const Login = () => {
   const [validPass, setValidPass] = useState(true);
   const cookies = Cookies.get();
   const navigate = useNavigate();
+
   const loginHandler = async (e) => {
     if (!email || !password) {
       return;
     }
-    console.log(cookies, "cookies");
+
     e.preventDefault();
     if (name === "teachers") {
       name = "teacherLogin";
@@ -26,10 +27,14 @@ const Login = () => {
       name = "studentLogin";
     }
     await axios
-      .post(`http://localhost:5000/${name}`, {
-        email,
-        password,
-      })
+      .post(
+        `http://localhost:5000/${name}`,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
       .then((r) => {
         if (
           r.data.message === "wrong email" ||
@@ -39,9 +44,7 @@ const Login = () => {
         } else {
           setValidPass(true);
           setValidEmail(true);
-
           if (r.data.status) {
-            localStorage.setItem("token", r.data.token);
             navigate("/home2");
           } else {
             navigate("/wait");
